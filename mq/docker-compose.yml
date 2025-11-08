@@ -5,8 +5,8 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq
     ports:
-      - "0.0.0.0:5672:5672"   # For Celery
-      - "0.0.0.0:15672:15672" # Management UI
+      - "0.0.0.0:5672:5672"
+      - "0.0.0.0:15672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
@@ -16,16 +16,19 @@ services:
       timeout: 5s
       retries: 5
 
-  worker:
+  celery_worker:
     build: ./app
     container_name: celery_worker
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
     command: celery -A tasks worker --loglevel=info
 
-  app:
+  python_app:
     build: ./app
     container_name: python_app
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
     command: python worker.py
+
