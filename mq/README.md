@@ -1,6 +1,6 @@
 # 📨 Celery + RabbitMQ + Redis (Dockerized Message Queue Demo)
 
-A practical **DevOps mini-project** demonstrating how to build an **asynchronous task processing system** using **Celery**, **RabbitMQ**, and **Redis** — all running in **Docker containers**.
+A practical **DevOps mini-project** demonstrating how to build an **asynchronous task processing system** using **Celery**, **RabbitMQ**, and **Redis**, all running in **Docker containers**.
 
 This setup helps you understand how distributed systems handle background jobs, message queues, and decoupled workloads in production environments.
 
