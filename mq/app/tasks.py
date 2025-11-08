@@ -4,7 +4,7 @@ import time
 app = Celery(
     'tasks',
     broker='amqp://guest:guest@rabbitmq:5672//',
-    backend='redis://redis:6379/0'   # <-- Added this line
+    backend='redis://redis:6379/0'
 )
 
 @app.task
