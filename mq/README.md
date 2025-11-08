@@ -1,11 +1,12 @@
 
-## docker exec -it python_app bash
+### To push a task
+docker exec -it python_app bash
 
-To send task, use below inside the docker
-## python producer.py
+### To send task, use below inside the docker
+python producer.py
 
 
-# How to check on Redis:
+### How to check on Redis:
 docker exec -it redis redis-cli
 
 keys *
